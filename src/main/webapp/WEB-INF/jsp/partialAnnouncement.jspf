@@ -1,0 +1,18 @@
+<fmt:message key="admin.deleteAnnouncement" var="delete"/>
+<h2 align=center>
+    ${empty announcement.titleEn ? announcement.titleRu : announcement.titleEn}
+</h2>
+<p style="padding: 10px">
+<c:choose>
+    <c:when test="${not empty announcement.bodyEn}"><p>${announcement.bodyEn}</p></c:when>
+    <c:when test="${not empty announcement.bodyRu}"><p>${announcement.bodyRu}</p></c:when>
+</c:choose>
+</p><br/><br/>
+<c:if test="${not empty admin}">
+    <div class="row horizontalCenter">
+        <form action="<c:url value='/deleteAnnouncement'/>" method="post">
+            <input type="hidden" name="announcementId" value="${announcement.id}"/>
+            <t:input type="submit" value="${delete}" className="btn btn-danger btn-lg col-md-3"/>
+        </form>
+    </div>
+</c:if>

@@ -1,0 +1,38 @@
+<c:if test="${not empty successfullySent}">
+    <h3 class="alert alert-danger" align=center>
+        <fmt:message key="${successfullySent}"/>
+    </h3>
+</c:if>
+<c:if test="${not empty error}">
+    <h3 class="alert alert-danger" align=center>
+        <fmt:message key="${error}"/>
+    </h3>
+</c:if>
+
+<form action="<c:url value='/sendOrder'/>"
+      class="alert alert-info col-lg-5 horizontalCenter" id="sendOrderForm" method="post">
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <label><fmt:message key="client.carType"/></label>
+            <select class="form-control" name="carType">
+                <option value="VIP">vip</option>
+                <option value="USUALLY"><fmt:message key="client.carType.usually"/></option>
+                <option value="ECONOMY"><fmt:message key="client.carType.economy"/></option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <label class="control-label"><fmt:message key="order.pickupLocation"/></label>
+            <input class="form-control" value="${param.pickupLocation}" type="text" name="pickupLocation"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <label class="control-label"><fmt:message key="order.dropOffLocation"/></label>
+            <input class="form-control" value="${param.dropOffLocation}" type="text" name="dropOffLocation"/>
+        </div>
+    </div>
+    <button id="sendOrder" class="btn btn-success"><fmt:message
+            key="order.sendOrder"/></button>
+</form>

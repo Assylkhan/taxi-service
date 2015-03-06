@@ -1,0 +1,30 @@
+<fmt:message key="comment.send" var="sendComment"/>
+<fmt:message key="comment.leaveComment" var="leaveComment"/>
+<div class="comments">
+    <h2 align=center><fmt:message key="comment.message.leaveComment"/></h2><br/><br/>
+    <c:forEach items="${allComments}" var="comment">
+        <div class="row comment">
+            <div class="col-md-3" style="margin: auto;">
+                <p>${comment.client.login}</p>
+
+                <p><fmt:formatDate value="${comment.leaveDate}" pattern="dd/MM/yyyy HH:mm"/></p>
+            </div>
+            <div class="col-md-6" style="margin: auto;">
+                <p>${comment.body}</p>
+            </div>
+        </div>
+    </c:forEach>
+    <br/>
+    <c:if test="${not empty client}">
+        <div class="row horizontalCenter">
+
+            <form action="<c:url value='/leaveComment'/>" method="post">
+            <textarea class="input-group" name="body" placeholder="${leaveComment}"
+                      id="commentBody" cols="60" rows="6"></textarea>
+                <br/>
+                <t:input className="col-md-3 btn btn-default"
+                         type="submit" value="${sendComment}"/>
+            </form>
+        </div>
+    </c:if>
+</div>

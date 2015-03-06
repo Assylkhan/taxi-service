@@ -1,0 +1,55 @@
+<c:choose>
+    <c:when test="${not empty notifyOrders}">
+        <%--<h5 align=center class="alert alert-success"><fmt:message key="client.message.arrivedCabs"/></h5>--%>
+
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <c:forEach items="${notifyOrders}" var="order" varStatus="theCount">
+                <div class="panel panel-info">
+                    <div class="panel-heading" role="tab">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#pan_${theCount.count}" aria-expanded="true" aria-controls="collapseOne">
+                            <strong>${order.pickupLocation} - ${order.dropOffLocation}</strong>
+                        </a>
+                    </div>
+                    <div id="pan_${theCount.count}"
+                         class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <dl class="dl">
+                                <p>
+                                    <fmt:formatDate value="${order.receivedTime}" pattern="dd.MM.yyyy hh:mm"/>
+                                </p>
+
+                                <dt><fmt:message key="driver.carGovNumber"/></dt>
+                                <dd>${order.driver.govNumber}</dd>
+
+                                <dt><fmt:message key="driver.carModel"/></dt>
+                                <dd>${order.driver.carModel}</dd>
+
+                                <dt><fmt:message key="driver.carClass"/></dt>
+                                <dd>${order.driver.carClass}</dd>
+
+                                <dt><fmt:message key="order.status"/></dt>
+                                <dd><fmt:message key="order.status.${order.status}"/></dd>
+
+                                <p>
+                                    <c:choose>
+                                        <c:when test="${order.status =='ACCEPTED'}">
+                                            <fmt:message key="client.message.orderAccepted"/>
+                                        </c:when>
+                                        <c:when test="${order.status == 'CLIENT_EXPECTING'}">
+                                            <fmt:message key="client.message.DriverExpecting"/>
+                                        </c:when>
+                                    </c:choose>
+                                </p>
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </c:when>
+    <c:otherwise>
+        <h2 align=center><fmt:message key="client.message.doNotHaveNotifications"/></h2>
+    </c:otherwise>
+</c:choose>

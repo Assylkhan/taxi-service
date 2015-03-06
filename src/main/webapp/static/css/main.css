@@ -1,0 +1,388 @@
+/*common styles*/
+
+* {
+    border-radius: 0 !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 400%;
+    font-style: oblique;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+h4 {
+    margin-bottom: 15px;
+}
+
+table {
+    text-align: center;
+}
+
+.navbar .languageToggle * {
+    color: #F89406 !important;
+}
+
+.navbar .dropdown-menu * {
+    color: #192236;
+}
+
+.navbar .navbar-center {
+    display: inline-block; margin-top: 7px; margin-left: 300px;
+}
+
+.own-container {
+    width: 1170px;
+    margin: auto;
+}
+
+.loginForm, .registerForm {
+    margin-top: 60px !important;
+}
+
+.form-group > * {
+    display: block;
+}
+
+dl > * {
+    font-size: 1.4em;
+}
+
+.navbar {
+    font-weight: bold;
+    line-height: 18px;
+    /*width: ;*/
+}
+
+.navbar:after {
+    background-color: #fff;
+}
+
+a:hover, .navbar-inverse a:visited, .navbar-inverse a {
+    text-decoration: none;
+}
+
+.navbar *, .navbar a, .navbar a:hover, .navbar a:visited {
+    color: #eee;
+}
+
+.navbar > .container-fluid > ul {
+    margin: 15px;
+}
+
+header .navbar > .container-fluid > ul > li {
+    margin-left: 20px;
+    float: left;
+}
+
+.dropdown .dropdown-menu {
+    min-width: 0px;
+}
+
+.right-side-bar {
+    background: #fff;
+    min-height: 500px;
+    float: left;
+    height: auto;
+    width: 250px;
+}
+
+.selected {
+    background: #769fff !important;
+    color: #000000;
+}
+
+.horizontalCenter {
+    margin: auto;
+    float: none;
+}
+
+.centered-children * {
+    text-align: center;
+}
+
+@media screen and (max-width: 991px) {
+    .columns {
+        height: 200px;
+        overflow: scroll;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .columns {
+        -moz-column-count: 2; /* Firefox */
+        -webkit-column-count: 2; /* Safari and Chrome */
+        column-count: 2;
+        width: 500px;
+    }
+}
+
+/*sticky footer*/
+
+html, body {
+    min-height: 100%;
+    margin: 0;
+}
+
+#parent-wrapper {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+}
+
+#wrapper {
+    flex: 1;
+    min-height: 100%;
+    height: auto !important;
+    /*padding-bottom: 60px;*/
+    padding: 0 15px 60px;
+    display: flex;
+}
+
+.footer {
+    height: 53px;
+    /*margin-top: 20px;*/
+}
+
+/*content*/
+
+.content {
+    float: left;
+    width: 880px;
+    margin-right: 10px;
+    padding: 0 30px 0;
+}
+
+.content .tab-panel {
+    background: #fff;
+    padding-bottom: 30px;
+}
+
+.content .tab-content {
+    padding: 10px;
+}
+
+.tab-content .panel {
+    width: 550px;
+}
+
+.tab-content .panel-heading {
+    height: 35px;
+}
+
+.content .tab-panel > .nav {
+    border-bottom: 3px solid rgb(253, 171, 3);
+    margin-bottom: 20px;
+}
+
+    /*right-side-bar*/
+
+ .right-side-bar .tab-content {
+    text-align: center;
+    font-weight: bold;
+    margin: 5px;
+    border: solid 2px #dcdcdc;
+    color: #898989;
+}
+
+.right-side-bar .tab-content div {
+    font-size: 12px;
+    padding: 0px;
+}
+
+.right-side-bar .tab-content #news > div {
+    white-space: normal;
+    overflow: hidden;
+    height: 109px;
+    padding: 5px;
+}
+
+.right-side-bar .tab-content #comments > div:not(:last-of-type) {
+    white-space: normal;
+    overflow: hidden;
+    border-bottom: solid 2px #dcdcdc;
+    padding: 2px;
+}
+
+.comments {
+    color: teal;
+}
+
+.announcements {
+    margin: auto;
+    float: none;
+    padding: 4px;
+}
+
+.partialAnnouncement {
+    background: #fff;
+    height: 195px;
+    margin: 0 15px 30px;
+    overflow: hidden;
+}
+
+.comment {
+    font-weight: bold;
+    border-bottom: solid 1px #aaaaaa;
+}
+
+    /*progress tracker*/
+
+.progress-tracker {
+    display: block;
+    margin: auto;
+    margin-left: 100px;
+    counter-reset: item;
+    list-style-type: none;
+    overflow: auto;
+    width: 100%;
+}
+
+.progress-tracker .step:before {
+    background: #aaa;
+    border-radius: 40px;
+    color: #FFFFFF;
+    content: "";
+    display: list-item;
+    font-size: 18px;
+    line-height: 1.8em;
+    padding: 0 0 0 13px;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    content: counter(item) "  ";
+    counter-increment: item;
+}
+
+.progress-tracker .step {
+    display: block;
+    float: left;
+    list-style-position: inside;
+    width: 25%;
+}
+
+.progress-tracker .step .step-name {
+    border-top: 8px solid #aaa;
+    display: block;
+    margin: 15px 0;
+    padding: 20px 0;
+}
+
+.progress-tracker .step:last-child {
+    width: auto;
+}
+
+.progress-tracker .step:last-child .step-name {
+    border-color: transparent;
+}
+
+.progress-tracker .step.active .step-name {
+    color: #192236
+}
+
+.progress-tracker .step.active:before {
+    background: #769fff;
+}
+
+/*scrollable table*/
+
+/*table.scroll tbody,
+table.scroll thead {
+   display: block;
+}
+
+table.scroll {
+   *//*border-spacing: 0;*//*
+   border-collapse: separate;
+}
+
+table.scroll thead {
+   line-height: 30px;
+}
+
+table.scroll tbody {
+   overflow-y: auto;
+   height: 160px;
+}
+*/
+
+/*#wrapper:after {*/
+/*content: ".";*/
+/*display: block;*/
+/*}*/
+
+/*dispatcher and driver styles*/
+
+#dispatcher, #driver {
+    /*#E9633B #8A0651*/
+    background: #f5f3e9;
+}
+
+#dispatcher .orderServing {
+    border: solid 3px #F89406;
+    padding: 7px;
+}
+
+#dispatcher .orderServing .btn-serve {
+    background: #F89406;
+}
+
+#dispatcher #orders tbody tr {
+    cursor: pointer;
+}
+
+.flexed-group {
+    display: flex;
+}
+
+.flexed-group > * {
+    margin-left: 5px;
+}
+
+#driversList > option {
+    color: #000;
+}
+
+.navbar-inverse .dropdown > .dropdown-menu {
+    background: #334444;
+}
+
+/*client's styles*/
+
+#client .navbar {
+    background: linear-gradient(to bottom, #FBB450, #F89406) repeat-x scroll 0% 0% #9DB668;
+}
+
+.custom-yellow {
+    background: linear-gradient(to bottom, #FBB450, #F89406) repeat-x scroll 0% 0% #9DB668;
+}
+
+#client #parent-wrapper {
+    background: url("/static/image/bgClient.jpg");
+}
+
+#client .navbar {
+    border-top: solid 3px #ffffff;
+    border-bottom: solid 3px #ffffff;
+}
+
+#client .navbar .dropdown-menu a:hover {
+    background: linear-gradient(to bottom, #FBB450, #F89406) repeat-x scroll 0% 0% #9DB668;
+    color: #eee;
+}
+
+/*admin's styles*/
+
+#admin .navbar {
+    background: #f92f17;
+}
+
+#employeeOrders {
+    background: #fff;
+}

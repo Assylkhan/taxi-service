@@ -1,0 +1,19 @@
+<div class="announcements">
+    <c:forEach items="${announcements}" var="announcement">
+        <div class="row well partialAnnouncement">
+            <h2 align=center>
+                <a href="<c:url value='/announcement'>
+                            <c:param name="announcementId" value="${announcement.id}"/>
+                </c:url> ">
+                ${empty announcement.titleEn ? announcement.titleRu : announcement.titleEn}
+                </a>
+                <small><fmt:formatDate value="${announcement.postDate}" pattern="dd/MM/yyyy"/></small>
+            </h2>
+            <c:choose>
+                <c:when test="${not empty announcement.bodyEn}"><p>${announcement.bodyEn}</p></c:when>
+                <c:when test="${not empty announcement.bodyRu}"><p>${announcement.bodyRu}</p></c:when>
+            </c:choose>
+            <p></p>
+        </div>
+    </c:forEach>
+</div>
