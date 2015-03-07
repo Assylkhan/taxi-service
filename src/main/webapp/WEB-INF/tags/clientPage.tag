@@ -39,6 +39,8 @@
                     </li>
                 </c:when>
                 <c:otherwise>
+                    <fmt:message key="client.guide" var="guide"/>
+                    <li><a href="<c:url value='siteGuide'/>">${guide}</a></li>
                     <li><a href="<c:url value='/login'/>">
                         <fmt:message key="login.button.login"/>
                     </a></li>

@@ -18,7 +18,7 @@
             </div>
 
             <fmt:message key="driver.message.currentLocation" var="location"/>
-            <fmt:message key="driver.changeState.update" var="update"/>
+            <fmt:message key="driver.state.change" var="update"/>
             <t:input type="text" name="location" placeholder="${location}"/>
             <t:input type="submit" value="${update}" className="btn btn-info"/>
         </form>

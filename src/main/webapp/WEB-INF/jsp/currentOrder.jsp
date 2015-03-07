@@ -16,7 +16,6 @@
                 <li class="step"><span class="step-name"><fmt:message key="order.status.COMPLETED"/></span></li>
             </ol>
             <dl>
-                <h2>${driver.currentOrder.status}</h2>
                 <dt><fmt:message key="client.firstName"/></dt>
                 <dd><c:out value="${driver.currentOrder.client.firstName}" default="unknown"/></dd>
 
@@ -32,22 +31,30 @@
             <c:choose>
                 <c:when test="${driver.currentOrder.status == 'ACCEPTED'}">
                     <form id="takeUp" action='<c:url value="/takeUpFlight"/>' method="post">
-                        <input class="btn btn-success" type="submit" name="act" value="takeUp"/>
+                        <input name="act" value="takeUp" type="hidden"/>
+                        <fmt:message key="driver.flight.takeUp" var="takeUp"/>
+                        <input class="btn btn-success" type="submit" name="act" value="${takeUp}"/>
                     </form>
                 </c:when>
                 <c:when test="${driver.currentOrder.status == 'TAKEN_UP'}">
                     <form id="clientExpecting" action='<c:url value="/notifyClient"/>' method="post">
-                        <input class="btn btn-success" type="submit" name="act" value="notifyClient"/>
+                        <input name="act" value="notifyClient" type="hidden"/>
+                        <fmt:message key="driver.flight.notifyClient" var="notifyClient"/>
+                        <input class="btn btn-success" type="submit" value="${notifyClient}"/>
                     </form>
                 </c:when>
                 <c:when test="${driver.currentOrder.status == 'CLIENT_EXPECTING'}">
                     <form id="start" action='<c:url value="/startFlight"/>' method="post">
-                        <input class="btn btn-success" type="submit" name="act" value="start"/>
+                        <input name="act" type="hidden" value="start"/>
+                        <fmt:message key="driver.flight.start" var="start"/>
+                        <input class="btn btn-success" type="submit" value="${start}"/>
                     </form>
                 </c:when>
                 <c:when test="${driver.currentOrder.status == 'IN_PROCESS'}">
                     <form id="end" action='<c:url value="/endFlight"/>' method="post">
-                        <input class="btn btn-success" type="submit" name="act" value="end"/>
+                        <input type="hidden" name="act" value="end"/>
+                        <fmt:message key="driver.flight.finish" var="finish"/>
+                        <input class="btn btn-success" type="submit" value="${finish}"/>
                     </form>
                 </c:when>
             </c:choose>

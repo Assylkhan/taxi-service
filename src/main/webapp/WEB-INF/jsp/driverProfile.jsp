@@ -12,7 +12,7 @@
         </strong><br/><br/>
 
         <p><strong><a href='<c:url value="/changeDriverState"/>'>
-            <fmt:message key="driver.changeState.update"/>
+            <fmt:message key="driver.state.change"/>
         </a></strong></p>
         <dl>
             <dt><fmt:message key="user.firstName"/></dt>

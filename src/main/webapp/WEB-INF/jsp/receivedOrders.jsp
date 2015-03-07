@@ -47,19 +47,25 @@
                                     <c:when test="${order.status == 'NOT_SERVED'}">
                                         <form action='<c:url value="/driverConfirmation"/>' method="post">
                                             <input type="hidden" name="orderId" value="${order.id}">
-                                            <input class="btn btn-success" type="submit" name="act" value="accept"/>
+                                            <input type="hidden" name="act" value="accept">
+                                            <fmt:message key="driver.order.accept" var="accept"/>
+                                            <input class="btn btn-success" type="submit" value="${accept}"/>
                                         </form>
                                     </c:when>
                                     <c:otherwise>
                                         <form action='<c:url value="/driverOrderServe"/>' method="post">
                                             <input type="hidden" name="orderId" value="${order.id}">
-                                            <input class="btn btn-danger" type="submit" name="act" value="serve"/>
+                                            <input type="hidden" name="act" value="serve">
+                                            <fmt:message key="driver.order.serve" var="serve"/>
+                                            <input class="btn btn-danger" type="submit" value="${serve}"/>
                                         </form>
                                     </c:otherwise>
                                 </c:choose>
                                 <form action='<c:url value="/driverConfirmation"/>' method="post">
                                     <input type="hidden" name="orderId" value="${order.id}">
-                                    <input class="btn btn-danger" type="submit" name="act" value="decline"/>
+                                    <input type="hidden" name="act" value="decline">
+                                    <fmt:message key="driver.order.decline" var="decline"/>
+                                    <input class="btn btn-danger" type="submit" value="${decline}"/>
                                 </form>
                             </div>
                         </dl>
