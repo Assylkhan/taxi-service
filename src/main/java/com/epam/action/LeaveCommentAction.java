@@ -1,5 +1,6 @@
 package com.epam.action;
 
+import com.epam.dao.DaoException;
 import com.epam.dao.DaoFactory;
 import com.epam.entity.Client;
 import com.epam.entity.Comment;
@@ -21,7 +22,12 @@ public class LeaveCommentAction implements Action {
         DaoFactory daoFactory = (DaoFactory) req.getServletContext().getAttribute("daoFactory");
         CommentService commentService = new CommentService(daoFactory);
         Comment comment = createCommentBean(req);
-        commentService.insert(comment);
+        try {
+            commentService.insert(comment);
+        } catch (DaoException e) {
+            req.setAttribute("error", "client.message.maxCommentSize");
+            return new ActionResult("comments");
+        }
         log.info("comment was created by client {0}", comment.getClient().getLogin());
         return new ActionResult("comments", true);
     }

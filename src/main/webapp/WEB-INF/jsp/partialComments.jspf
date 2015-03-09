@@ -20,7 +20,12 @@
 
             <form action="<c:url value='/leaveComment'/>" method="post">
             <textarea class="input-group" name="body" placeholder="${leaveComment}"
-                      id="commentBody" cols="60" rows="6"></textarea>
+                      id="commentBody" cols="60" rows="6">${param.body}</textarea>
+                <c:if test="${not empty error}">
+                    <p style="color: firebrick">
+                        <fmt:message key="${error}"/>
+                    </p>
+                </c:if>
                 <br/>
                 <t:input className="col-md-3 btn btn-default"
                          type="submit" value="${sendComment}"/>

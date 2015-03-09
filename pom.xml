@@ -65,7 +65,6 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>

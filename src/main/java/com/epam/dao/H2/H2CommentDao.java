@@ -10,9 +10,9 @@ import java.util.List;
 
 public class H2CommentDao implements CommentDao {
     private static final String INSERT = "INSERT INTO COMMENT VALUES (NULL, ?, ?, NOW())";
-    private static final String SELECT_ALL = "SELECT * FROM COMMENT";
+    private static final String SELECT_ALL = "SELECT * FROM COMMENT;";
     private static final String SELECT_BY_CLIENT_ID = "SELECT * FROM COMMENT WHERE CLIENT_ID=?";
-    private static final String SELECT_BY_ID = "SELECT * FROM COMMENT WHERE ID=?";
+    private static final String SELECT_BY_ID = "SELECT * FROM COMMENT WHERE ID=?;";
     private Connection connection;
 
     public H2CommentDao(Connection connection) {

@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class H2AnnouncementDao implements AnnouncementDao {
-    private static final String SELECT_BY_ID = "SELECT * FROM ANNOUNCEMENT WHERE ID=?";
+    private static final String SELECT_BY_ID = "SELECT * FROM ANNOUNCEMENT WHERE ID=?;";
     private static final String INSERT = "INSERT INTO ANNOUNCEMENT(TITLE_EN, BODY_EN, TITLE_RU, BODY_RU) " +
                                          "VALUES (?, ?, ?, ?)";
-    private static String SELECT_ALL = "SELECT * FROM ANNOUNCEMENT";
+    private static String SELECT_ALL = "SELECT * FROM ANNOUNCEMENT;";
     private static String DELETE_BY_ID = "DELETE ANNOUNCEMENT WHERE ID=?";
     private Connection connection;
 
