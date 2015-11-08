@@ -30,7 +30,7 @@ public class RegisterDriverAction implements Action {
             req.setAttribute("natIdError", "employee.message.nationalIdTaken");
             return registerAgain;
         }
-        log.info("registered new driver by login {0}", driver.getLogin());
+        log.info("registered new driver by login {}", driver.getLogin());
         req.getSession().setAttribute("driver", driver);
         return new ActionResult("receivedOrders", true);
     }

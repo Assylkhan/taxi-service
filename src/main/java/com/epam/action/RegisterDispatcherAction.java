@@ -31,7 +31,7 @@ public class RegisterDispatcherAction implements Action {
             req.setAttribute("natIdError", "employee.message.nationalIdTaken");
             return registerAgain;
         }
-        log.info("registered new dispatcher by login {0}", dispatcher.getLogin());
+        log.info("registered new dispatcher by login {}", dispatcher.getLogin());
         req.getSession().setAttribute("dispatcher", dispatcher);
         return new ActionResult("orderServing", true);
     }

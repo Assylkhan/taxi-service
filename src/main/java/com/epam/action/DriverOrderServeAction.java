@@ -31,7 +31,7 @@ public class DriverOrderServeAction implements Action {
         driver.setAvailable(false);
         DriverService driverService = new DriverService(daoFactory);
         driverService.updateState(driver);
-        log.info("driver {0} has taken up order {1}-{2}, at {3}",
+        log.info("driver {} has taken up order {}-{}, at {}",
                 driver.getLogin(), order.getPickupLocation(), order.getDropOffLocation(),
                 order.getReceivedTime());
         req.getSession().setAttribute("driver", driver);

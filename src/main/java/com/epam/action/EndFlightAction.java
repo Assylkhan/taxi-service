@@ -46,7 +46,7 @@ public class EndFlightAction implements Action {
         }
         currentOrder.setStatus(OrderStatus.COMPLETED);
         driverService.updateOrderByDriver(driver);
-        log.info("driver {0} has finished order {1}-{2}, that received at {3}",
+        log.info("driver {} has finished order {}-{}, that received at {}",
                 driver.getLogin(), currentOrder.getPickupLocation(),
                 currentOrder.getDropOffLocation(),
                 currentOrder.getReceivedTime());

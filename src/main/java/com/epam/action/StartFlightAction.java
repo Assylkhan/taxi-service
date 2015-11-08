@@ -24,7 +24,7 @@ public class StartFlightAction implements Action {
         Order currentOrder = driver.getCurrentOrder();
         currentOrder.setStatus(OrderStatus.IN_PROCESS);
         driverService.updateOrderByDriver(driver);
-        log.info("driver {0} started order {1} - {2}", driver.getLogin(),
+        log.info("driver {} started order {} - {}", driver.getLogin(),
                 currentOrder.getPickupLocation(), currentOrder.getDropOffLocation());
         req.getSession().setAttribute("driver", driver);
         return success;

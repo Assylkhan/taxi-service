@@ -10,7 +10,7 @@
                 <strong><fmt:message key="${error}"/></strong>
             </p>
         </c:if>
-        <p><strong class="alert-danger">
+        <p><strong class="alert-success">
             <c:if test="${not empty chosenDriver}">
                 <fmt:message key="${chosenDriver}"/>
             </c:if>
@@ -35,6 +35,13 @@
                         current location: <c:out value="${driver.currentLocation}" default="unknown"/>
                     </option>
                 </c:forEach>
+                <option value="${driver.id}">
+                    имя: Игорь |
+                    фамилия: Тимофеев |
+                    телефон: 8758-414-42-85|
+                    доступен: да |
+                    текущее место: гапеева-3, дом-4
+                </option>
             </select>
 
             <h3><fmt:message key="dispatcher.message.chooseApplication"/></h3>
@@ -48,6 +55,7 @@
                     <th><fmt:message key="order.pickupLocation"/></th>
                     <th><fmt:message key="order.dropOffLocation"/></th>
                     <th><fmt:message key="client.carType"/></th>
+                    <th>бонус, тг</th>
                     <th><fmt:message key="order.receivedTime"/></th>
                     <th><fmt:message key="order.status"/></th>
                     <th></th>
@@ -61,6 +69,7 @@
                         <td>${order.pickupLocation}</td>
                         <td>${order.dropOffLocation}</td>
                         <td>${order.carClass}</td>
+                        <td>0</td>
                         <td>${order.receivedTime}</td>
                         <td><fmt:message key="order.status.${order.status}"/></td>
                         <td>

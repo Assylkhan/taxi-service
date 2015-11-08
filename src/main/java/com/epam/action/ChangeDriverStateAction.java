@@ -28,7 +28,7 @@ public class ChangeDriverStateAction implements Action {
          * update driver state in db
          */
         driverService.updateState(driver);
-        log.info("driver {0} state changed to {1}, current location: {2}",
+        log.info("driver {} state changed to {1}, current location: {2}",
                 driver.getLogin(), driver.isAvailable(), driver.getCurrentLocation());
         /**
          * set updated driver to session

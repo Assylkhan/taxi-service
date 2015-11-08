@@ -24,7 +24,7 @@ public class RemoveOrderAction implements Action {
             resp.setStatus(500);
             throw e;
         }
-        log.info("removed order {0}", orderId);
+        log.info("removed order {}", orderId);
         req.setAttribute("data", "removed");
         return new ActionResult("json");
     }

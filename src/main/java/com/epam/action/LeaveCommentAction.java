@@ -28,7 +28,7 @@ public class LeaveCommentAction implements Action {
             req.setAttribute("error", "client.message.maxCommentSize");
             return new ActionResult("comments");
         }
-        log.info("comment was created by client {0}", comment.getClient().getLogin());
+        log.info("comment was created by client {}", comment.getClient().getLogin());
         return new ActionResult("comments", true);
     }
 

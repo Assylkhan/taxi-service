@@ -13,6 +13,12 @@
       class="alert alert-info col-lg-5 horizontalCenter" id="sendOrderForm" method="post">
     <div class="row">
         <div class="form-group col-lg-12">
+            <label class="control-label">телефон клиента</label>
+            <input class="form-control" value="${param.dropOffLocation}" type="text" name="dropOffLocation"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-12">
             <label><fmt:message key="client.carType"/></label>
             <select class="form-control" name="carType">
                 <option value="VIP">vip</option>

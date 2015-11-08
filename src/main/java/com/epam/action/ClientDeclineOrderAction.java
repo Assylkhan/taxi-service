@@ -36,7 +36,7 @@ public class ClientDeclineOrderAction implements Action {
             clientService.update(client);
         }
         orderService.deleteById(orderId);
-        log.info("client {0} declined order", client.getLogin());
+        log.info("client {} declined order", client.getLogin());
         return new ActionResult("myOrders", true);
     }
 }

@@ -45,7 +45,7 @@ public class H2DaoFactory extends DaoFactory {
             connection = pool.getConnection();
             connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
             log.info("has been taken new DaoManager and " +
-                    "transaction isolation was set to {0}", connection.getTransactionIsolation());
+                    "transaction isolation was set to {}", connection.getTransactionIsolation());
         } catch (SQLException e) {
         }
         return new H2DaoManager(connection);

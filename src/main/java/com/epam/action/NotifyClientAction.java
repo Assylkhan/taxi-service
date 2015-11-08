@@ -22,7 +22,7 @@ public class NotifyClientAction implements Action {
         DriverService driverService = new DriverService(daoFactory);
         driver.getCurrentOrder().setStatus(OrderStatus.CLIENT_EXPECTING);
         driverService.updateOrderByDriver(driver);
-        log.info("driver {0} is expecting client", driver.getLogin());
+        log.info("driver {} is expecting client", driver.getLogin());
         req.getSession().setAttribute("driver", driver);
         return success;
     }

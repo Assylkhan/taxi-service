@@ -56,7 +56,7 @@ public class ConnectionPool {
         for (int i = 0; i < initialPoolSize; i++) {
             openAndPutConnection();
         }
-        log.info("initialized {0} free connections", freeConnections.size());
+        log.info("initialized {} free connections", freeConnections.size());
     }
 
     public Connection getConnection() throws SQLException {
@@ -65,11 +65,11 @@ public class ConnectionPool {
         }
         PooledConnection connection = null;
         try {
-            log.info("thread {0} is going to take connection", Thread.currentThread().getId());
+            log.info("thread {} is going to take connection", Thread.currentThread().getId());
             connection = freeConnections.take();
-            log.info("thread {0} has taken connection", Thread.currentThread().getId());
+            log.info("thread {} has taken connection", Thread.currentThread().getId());
         } catch (InterruptedException e) {
-            log.error("thread {0} couldn't take free connection from pool: ", Thread.currentThread().getId(), e);
+            log.error("thread {} couldn't take free connection from pool: ", Thread.currentThread().getId(), e);
         }
         return connection;
     }

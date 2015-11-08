@@ -23,7 +23,7 @@ public class TakeUpFlightAction implements Action {
         Order currentOrder = driver.getCurrentOrder();
         currentOrder.setStatus(Order.OrderStatus.TAKEN_UP);
         driverService.updateOrderByDriver(driver);
-        log.info("taken up flight by driver {0} started order {1} - {2}", driver.getLogin(),
+        log.info("taken up flight by driver {} started order {} - {}", driver.getLogin(),
         currentOrder.getPickupLocation(), currentOrder.getDropOffLocation());
         req.getSession().setAttribute("driver", driver);
         return success;

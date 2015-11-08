@@ -4,6 +4,7 @@ import com.epam.dao.*;
 import com.epam.entity.Dispatcher;
 import com.epam.entity.Driver;
 import com.epam.entity.Order;
+import com.epam.service.DriverService;
 import com.epam.service.OrderService;
 import com.epam.validation.InputValidator;
 import org.slf4j.LoggerFactory;
@@ -29,12 +30,12 @@ public class ChooseDriverAction implements Action {
         }
         Order order = createOrderBean(req);
         if (order == null) {
-            req.setAttribute("flash.error", "dispatcher.message.operationFailed" );
+            req.setAttribute("flash.error", "dispatcher.message.alreadyGivenToDriver");
             return result;
         }
         OrderService orderService = new OrderService(daoFactory);
         orderService.entrustToDriver(order);
-        log.info("{0}-{1} order entrusted to {2} driver received at {3}",
+        log.info("{}-{} order entrusted to {} driver received at {}",
                 order.getPickupLocation(), order.getDropOffLocation(), order.getDriver().getLogin(),
                 order.getReceivedTime());
         req.setAttribute("flash.chosenDriver", "dispatcher.message.taskWasGiven");
@@ -44,12 +45,12 @@ public class ChooseDriverAction implements Action {
     private Order createOrderBean(HttpServletRequest req) {
         Long driverId = Long.valueOf(req.getParameter("driverId"));
         Long orderId = Long.valueOf(req.getParameter("orderId"));
-        Driver driver = new Driver();
-        driver.setId(driverId);
         DaoFactory daoFactory = (DaoFactory) req.getServletContext().getAttribute("daoFactory");
         OrderService orderService = new OrderService(daoFactory);
+        DriverService driverService = new DriverService(daoFactory);
+        Driver driver = driverService.findById(driverId);
+        driver.setId(driverId);
         Order order = orderService.findById(orderId);
-        if (order == null) return null;
         order.setCost(new BigDecimal(cost));
         order.setDriver(driver);
         order.setStatus(Order.OrderStatus.NOT_SERVED);

@@ -99,7 +99,7 @@ $(document).ready(function () {
                         "first name: " + drivers[i].firstName +
                         "| last name: " + drivers[i].lastName +
                         "| phone: " + drivers[i].phone +
-                        "| available" + drivers[i].available +
+                        "| available: " + drivers[i].available +
                         "| current location: " + drivers[i].currentLocation + "</option>";
                     options += option;
                 }

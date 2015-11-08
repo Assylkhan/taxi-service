@@ -28,7 +28,7 @@ public class ChangeLocaleAction implements Action {
 //        else
         changeAnnouncementLanguage(req);
         session.setAttribute("locale", new Locale(language));
-        log.info("changed language to {0}", language);
+        log.info("changed language to {}", language);
         return currentPage;
     }
 

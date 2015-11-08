@@ -37,7 +37,7 @@ public class LoginAction implements Action {
             ActionResult error = getErrorForUser(req);
             return error;
         }
-        log.info("logged in user {0}, his role is: ", user.getLogin(), user.getRole());
+        log.info("logged in user {}, his role is: ", user.getLogin(), user.getRole());
         ActionResult result = getActionResultByRole(req, user);
         return result;
     }

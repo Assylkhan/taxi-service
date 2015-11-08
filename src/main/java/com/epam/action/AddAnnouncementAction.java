@@ -18,7 +18,7 @@ public class AddAnnouncementAction implements Action {
         AnnouncementService announcementService = new AnnouncementService(daoFactory);
         Announcement announcement = createAnnouncementBean(req);
         announcementService.insert(announcement);
-        log.info("new announcement created: {0}", announcement.getTitleEn() + announcement.getTitleRu());
+        log.info("new announcement created: {}", announcement.getTitleEn() + announcement.getTitleRu());
         return new ActionResult("announcements", true);
     }
 

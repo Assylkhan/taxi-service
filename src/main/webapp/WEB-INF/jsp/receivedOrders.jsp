@@ -40,6 +40,10 @@
 
                             <dt><fmt:message key="order.status"/></dt>
                             <dd><fmt:message key="order.status.${order.status}"/></dd>
+
+                            <dt>бонус</dt>
+                            <dd>300тг</dd>
+
                             <br/>
 
                             <div class="flexed-group">

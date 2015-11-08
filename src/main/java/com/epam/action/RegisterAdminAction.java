@@ -23,7 +23,7 @@ public class RegisterAdminAction implements Action {
         Admin admin = (Admin)UserFactory.createUserBean(req, Admin.class.getName());
         AdminService adminService = new AdminService(daoFactory);
         Admin insertedAdmin = adminService.insert(admin);
-        log.info("registered new admin by login {0}", insertedAdmin.getLogin());
+        log.info("registered new admin by login {}", insertedAdmin.getLogin());
         req.getSession().setAttribute("admin", admin);
         return new ActionResult("reports", true);
     }

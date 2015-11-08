@@ -24,7 +24,7 @@ public class DeleteAnnouncementAction implements Action {
         AnnouncementService announcementService = new AnnouncementService(daoFactory);
         Long announcementId = Long.valueOf(req.getParameter("announcementId"));
         announcementService.deleteById(announcementId);
-        log.info("announcement by id {0} was deleted by admin",announcementId );
+        log.info("announcement by id {} was deleted by admin",announcementId );
         return new ActionResult("announcements", true);
     }
 }

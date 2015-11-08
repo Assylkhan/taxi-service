@@ -32,7 +32,7 @@ public class DriverConfirmationAction implements Action {
             order.setStatus(OrderStatus.ACCEPTED);
             orderService.update(order);
             driver.setCurrentOrder(order);
-            log.info("accepted {0}-{1} order by driver {2} received at {3}",
+            log.info("accepted {}-{} order by driver {} received at {}",
                     order.getPickupLocation(), order.getDropOffLocation(), driver.getLogin(),
                     order.getReceivedTime());
             req.getSession().setAttribute("driver", driver);
@@ -41,7 +41,7 @@ public class DriverConfirmationAction implements Action {
             order.setStatus(OrderStatus.NOT_SERVED);
             order.setDriver(null);
             orderService.update(order);
-            log.info("declined {0}-{1} order by driver {2} at {3}",
+            log.info("declined {}-{} order by driver {} at {}",
                     order.getPickupLocation(), order.getDropOffLocation(), driver.getLogin(),
                     order.getReceivedTime());
             req.getSession().setAttribute("driver", driver);

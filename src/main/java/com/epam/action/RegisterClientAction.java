@@ -24,7 +24,7 @@ public class RegisterClientAction implements Action {
         Client client = (Client) UserFactory.createUserBean(req, Client.class.getName());
         ClientService clientService = new ClientService(factory);
         clientService.insert(client);
-        log.info("registered new client by login {0}", client.getLogin());
+        log.info("registered new client by login {}", client.getLogin());
         req.getSession().setAttribute("client", client);
         return new ActionResult("clientServing", true);
     }
